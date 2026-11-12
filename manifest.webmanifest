@@ -1,0 +1,13 @@
+{
+  "name": "HI3 - The Galactic Defender",
+  "short_name": "HI3 Defender",
+  "description": "An original retro arcade space shooter.",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
