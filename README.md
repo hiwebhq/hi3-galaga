@@ -4,7 +4,12 @@ An original retro arcade space shooter in the style of early-1980s fixed-screen
 cabinets. Pure HTML5 Canvas + JavaScript + Web Audio — no build step, no
 dependencies, no image or sound files (all pixel art and audio are generated in code).
 
-## Run it
+## Play online
+
+**<http://galaga.hi3.cc>** — works on desktop, iPad and Android, nothing to install.
+(It redirects to the GitHub Pages site: <https://hiwebhq.github.io/hi3-galaga/>)
+
+## Run it locally
 
 ### Desktop (quickest)
 Double-click `index.html`. It runs straight from the file system.
