@@ -234,7 +234,8 @@
       if (((t * 2.5) | 0) & 1) {
         F.draw(ctx, H.Input.touch ? 'TAP START GAME TO PLAY' : 'PRESS ENTER TO START', W / 2, 198, COL.yellow, 1, 'center');
       }
-      F.draw(ctx, 'FREE PLAY - NO COINS NEEDED', W / 2, 304, COL.dim, 1, 'center');
+      F.draw(ctx, 'FREE PLAY - NO COINS NEEDED', W / 2, 294, COL.dim, 1, 'center');
+      F.draw(ctx, 'HTTP://GALAGA.HI3.CC', W / 2, 308, COL.cyan, 1, 'center');
     },
 
     drawHowTo: function (ctx) {
