@@ -54,6 +54,13 @@ To play away from home, upload the folder to any static host
 - Extra ship at 15,000 and every 40,000 after. Endless stages with a gradual difficulty ramp.
 - Top-5 high scores (with initials) and settings are saved in the browser's local storage.
 
+## Play counter
+
+The title screen shows a total play count shared by every visitor. Each time a game starts,
+the browser pings a free public counting service (Abacus, `abacus.jasoncameron.dev`); no
+personal data is sent. If the service can't be reached, the game shows this device's own
+count instead. Turn it off with `counter.enabled` in `js/config.js`.
+
 ## Tuning
 
 Everything adjustable lives in `js/config.js`: player speed, shot limit, lives, scores,

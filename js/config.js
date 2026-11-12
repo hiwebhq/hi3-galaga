@@ -8,7 +8,7 @@
   H.CONFIG = {
     TITLE: 'HI3',
     SUBTITLE: 'THE GALACTIC DEFENDER',
-    VERSION: 'v0.1',
+    VERSION: 'v0.2',
     W: 240,                 // logical playfield size (scaled to fit any screen)
     H: 320,
 
@@ -60,6 +60,14 @@
       pullSpeed: 46,        // px / second the captured ship is dragged upward
       jam: 0.7,             // seconds the guns are jammed after capture
       cooldown: 9           // min seconds between beams
+    },
+
+    /* Shared play counter: one total across every visitor, kept by a free public
+     * counting service. Set enabled to false to show this device's own count only. */
+    counter: {
+      enabled: true,
+      getUrl: 'https://abacus.jasoncameron.dev/get/hi3-galactic-defender/plays',
+      hitUrl: 'https://abacus.jasoncameron.dev/hit/hi3-galactic-defender/plays'
     },
 
     stars: [

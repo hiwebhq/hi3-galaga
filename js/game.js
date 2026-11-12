@@ -41,6 +41,23 @@
     }
   };
 
+  /* ---------- shared play counter (all visitors) ---------- */
+  var Counter = H.Counter = {
+    value: -1,           // -1 until the service answers; the title screen then falls back to the local count
+    request: function (url) {
+      if (!C.counter || !C.counter.enabled || typeof window.fetch !== 'function') return;
+      try {
+        window.fetch(url, { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) { if (d && typeof d.value === 'number') Counter.value = d.value; })
+          .catch(function () { /* offline or service down: keep playing */ });
+      } catch (e) { /* ignore */ }
+    },
+    load: function () { this.request(C.counter.getUrl); },
+    hit: function () { this.request(C.counter.hitUrl); },
+    plays: function () { return this.value >= 0 ? this.value : Store.data.plays; }
+  };
+
   var G = H.Game = {
     state: 'title',      // title | howto | settings | scores | play | paused | entry | gameover
     stateT: 0, backTo: 'title', menu: null,
@@ -85,6 +102,7 @@
       });
       window.addEventListener('blur', function () { self.pause(); });
 
+      Counter.load();
       this.applySettings(true);
       this.resize();
       this.setState('title');
@@ -160,6 +178,7 @@
       L.bonusCount = 0;
       Store.data.plays++;                           // play counter (saved on this device)
       Store.save();
+      Counter.hit();
       L.start(this);
       this.setState('play');
     },
