@@ -8,6 +8,7 @@
   H.CONFIG = {
     TITLE: 'HI3',
     SUBTITLE: 'THE GALACTIC DEFENDER',
+    VERSION: 'v0.1',
     W: 240,                 // logical playfield size (scaled to fit any screen)
     H: 320,
 

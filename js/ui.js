@@ -236,6 +236,9 @@
       }
       F.draw(ctx, 'FREE PLAY - NO COINS NEEDED', W / 2, 294, COL.dim, 1, 'center');
       F.draw(ctx, 'HTTP://GALAGA.HI3.CC', W / 2, 308, COL.cyan, 1, 'center');
+      F.draw(ctx, C.VERSION, W - 4, 310, COL.dim, 1, 'right');
+      F.draw(ctx, 'PLAYS', 4, 301, COL.dim);
+      F.draw(ctx, H.Store.data.plays, 4, 310, COL.dim);
     },
 
     drawHowTo: function (ctx) {

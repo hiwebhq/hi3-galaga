@@ -11,7 +11,8 @@
     key: 'hi3-galactic-defender.v1',
     data: {
       scores: C.defaultScores.map(function (s) { return { name: s.name, score: s.score, stage: s.stage }; }),
-      settings: { master: 8, music: 6, sfx: 8, muted: false, crt: true }
+      settings: { master: 8, music: 6, sfx: 8, muted: false, crt: true },
+      plays: 0            // games started on this device
     },
     load: function () {
       try {
@@ -23,6 +24,7 @@
             .map(function (s) { return { name: s.name.slice(0, 3), score: s.score, stage: s.stage || 1 }; });
           if (ok.length) this.data.scores = ok.sort(function (a, b) { return b.score - a.score; }).slice(0, 5);
         }
+        if (d && typeof d.plays === 'number' && d.plays > 0) this.data.plays = Math.floor(d.plays);
         if (d && d.settings) {
           var S = this.data.settings;
           ['master', 'music', 'sfx'].forEach(function (k) {
@@ -156,6 +158,8 @@
       this.banner = ''; this.bannerT = 0; this.pt = 0; this.lastRank = -1;
       FX.clear(); B.clear(); E.reset(); P.reset();
       L.bonusCount = 0;
+      Store.data.plays++;                           // play counter (saved on this device)
+      Store.save();
       L.start(this);
       this.setState('play');
     },
